@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Get CPU Hz
+lscpu | awk '{ if ($1=="CPU" && $2=="MHz:") printf("%.1fGHz", $3 / 1000) }'
+# Get CPU cores count
+lscpu | awk '{ if ($1=="CPU:" || $1=="CPU(s):") printf("x%d", $2) }'
+# Get load average
+cat /proc/loadavg | awk '{ printf(" (%s)", $1) }'

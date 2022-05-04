@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Get global IPv4 using google service
+curl --ipv4 https://domains.google.com/checkip

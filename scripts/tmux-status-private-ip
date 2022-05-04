@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Get IPv4 address eno1 via ip command.
+ip addr show eno1 | grep -o 'inet [0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+' | grep -o [0-9].*

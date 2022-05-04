@@ -1,0 +1,48 @@
+#!/bin/bash
+
+__trim_path_for_tmux() {
+    # Convert to full path
+    local full_path_dir=`readlink -f $1`
+    # Check existence of path
+    if [[ -a $full_path_dir ]]; then
+        # Remove file name from path
+        if [[ ! -d $full_path_dir ]]; then
+            full_path_dir=`dirname "$full_path_dir"`
+        fi
+
+        local trimmed_path_dir=$full_path_dir
+        # Trim $HOME directory
+        if [[ $trimmed_path_dir == $HOME ]]; then
+            trimmed_path_dir='~'
+        else
+            trimmed_path_dir=`echo $trimmed_path_dir | sed -e "s|^$HOME||"`
+        fi
+
+        # Configure rank limit
+        local dir_limit=3
+        if [[ -n $2 && $2 =~ ^[0-9]+$ ]]; then
+            dir_limit=$2
+        fi
+
+        # Trim high level directory
+        local dir_count=`echo $trimmed_path_dir | grep -o -E '[^/]+' | wc -l`
+        if [[ $dir_count -gt $dir_limit ]]; then
+            for ((i=0; i<$dir_count-$dir_limit; i++)); do
+                trimmed_path_dir=`echo $trimmed_path_dir | sed -e 's/^\/[^\/]\+//'`
+            done
+            trimmed_path_dir=`echo $trimmed_path_dir | sed -e 's/^\///'`
+        fi
+        echo "$trimmed_path_dir"
+        return 0
+    else
+        return 1
+    fi
+}
+
+if [[ -n $1 && -z $2 ]]; then
+    __trim_path_for_tmux $1
+elif [[ -n $1 && -n $2 ]]; then
+    __trim_path_for_tmux $1 $2
+else
+    return 2
+fi

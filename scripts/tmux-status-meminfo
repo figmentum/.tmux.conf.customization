@@ -1,0 +1,3 @@
+#!/bin/bash
+
+free -m | awk '/^Mem:/{printf(" %.1fG", $7/1024)}'
