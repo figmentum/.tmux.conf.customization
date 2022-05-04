@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Check parameter
+if [[ -n $1 ]]; then
+    # Check if app is not bash, zsh, dash or sh
+    if [[ $1 != bash && $1 != zsh && $1 != dash && $1 != sh ]]; then
+        echo $1
+    fi
+    return 0
+else
+    return 1
+fi

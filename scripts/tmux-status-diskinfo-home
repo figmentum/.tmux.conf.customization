@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# free_size/total_size of /home
+df -m | awk '$6 ~ /^\/home$/ {printf(" %.1fG"), $4 / 1024}'
