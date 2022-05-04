@@ -40,3 +40,10 @@ fi
 * byobuのキーバインドを真似ているが、再現度は高くない
 * tmux初心者（ペイン分割は滅多にせず、タブとセッション保持程度にしか使っていない）の設定のため、間違いや不適切な設定がいくつも含まれている可能性あり
 * 自分以外が使うことを想定していないため、手元で動いているように見えること以上の検証はしていない
+
+## License
+* .tmux.conf.customization/.tmux.conf.local
+  * Original author: Gregory Pakosz (@gpakosz). Dual licensed under the WTFPL v2 license and the MIT license.
+  * Author of modification: figmentum (https://siesta.pm). Licensed under MIT license.
+* Files in sciprt/ directory
+  * Author: figmentum (https://siesta.pm). Licensed under MIT license.

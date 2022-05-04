@@ -1,4 +1,8 @@
 #!/bin/bash
 
+# https://github.com/figmentum/.tmux.conf.customization
+#   This project is licensed under MIT license.
+#   Copyright 2022- figmentum (https://siesta.pm)
+
 # free_size/total_size of /home
 df -m | awk '$6 ~ /^\/home$/ {printf(" %.1fG"), $4 / 1024}'

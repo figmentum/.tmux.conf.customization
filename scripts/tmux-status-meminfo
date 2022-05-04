@@ -1,3 +1,7 @@
 #!/bin/bash
 
+# https://github.com/figmentum/.tmux.conf.customization
+#   This project is licensed under MIT license.
+#   Copyright 2022- figmentum (https://siesta.pm)
+
 free -m | awk '/^Mem:/{printf(" %.1fG", $7/1024)}'

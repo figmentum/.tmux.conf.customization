@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# https://github.com/figmentum/.tmux.conf.customization
+#   This project is licensed under MIT license.
+#   Copyright 2022- figmentum (https://siesta.pm)
+
 # Check parameter
 if [[ -n $1 ]]; then
     # Check if app is not bash, zsh, dash or sh
