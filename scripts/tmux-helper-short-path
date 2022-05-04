@@ -15,7 +15,7 @@ __trim_path_for_tmux() {
         if [[ $trimmed_path_dir == $HOME ]]; then
             trimmed_path_dir='~'
         else
-            trimmed_path_dir=`echo $trimmed_path_dir | sed -e "s|^$HOME||"`
+            trimmed_path_dir=`echo $trimmed_path_dir | sed -e "s|^$HOME/||"`
         fi
 
         # Configure rank limit
