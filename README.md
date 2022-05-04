@@ -14,7 +14,22 @@ $ cd ~
 $ git clone https://github.com/gpakosz/.tmux.git
 $ ln -s -f .tmux/.tmux.conf
 $ git clone https://github.com/figmentum/.tmux.conf.customization.git
+# Repositoryの.tmux.conf.localをそのまま利用する or 直接書き換える場合
 $ ln -s ~/.tmux.conf.customization/.tmux.conf.local ~/
+# .tmux.conf.localをコピーして編集する場合
+$ cp ~/.tmux.conf.customization/.tmux.conf.local ~/
+# scriptsをPATHに追加（bashの場合）
+$ echo '
+if [[ -d $HOME/.tmux.conf.customization/scripts ]]; then
+    export PATH="$PATH":"$HOME/.tmux.conf.customization/scripts"
+fi
+' >> ~/.bashrc
+# scriptsをPATHに追加（zshの場合）
+$ echo '
+if [[ -d $HOME/.tmux.conf.customization/scripts ]]; then
+    export PATH="$PATH":"$HOME/.tmux.conf.customization/scripts"
+fi
+' >> ~/.zshrc
 ```
 
 このレポジトリの[.tmux.conf.local](https://github.com/figmentum/.tmux.conf.customization/blob/master/.tmux.conf.local)と元の[.tmux.conf.local](https://github.com/gpakosz/.tmux/blob/master/.tmux.conf.local)とを比較すれば変更点が確認出来る。
