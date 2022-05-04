@@ -1,4 +1,8 @@
 #!/bin/bash
 
+# https://github.com/figmentum/.tmux.conf.customization
+#   This project is licensed under MIT license.
+#   Copyright 2022- figmentum (https://siesta.pm)
+
 # Get IPv4 address eno1 via ip command.
 ip addr show eno1 | grep -o 'inet [0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+' | grep -o [0-9].*

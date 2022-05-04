@@ -4,6 +4,9 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+# https://github.com/figmentum/.tmux.conf.customization
+#   Modification in "user customizations" section is licensed under MIT license.
+#   Copyright 2022- figmentum (https://siesta.pm)
 
 # -- navigation ----------------------------------------------------------------
 
