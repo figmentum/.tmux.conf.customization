@@ -1,4 +1,36 @@
 #!/bin/bash
 
-# Get global IPv4 using google service
-curl --ipv4 https://domains.google.com/checkip
+# Skip IPv4 update during counter is less than following value
+TMUX_STAUS_IPV4_COUNTER_RESET=300
+
+# Path to save counter value
+TMUX_STAUS_IPV4_COUNTER_PATH="/tmp/__tmux_status_ipv4_counter"
+
+# Create a new file and write 0 when a counter file does not exist
+if [[ ! -s $TMUX_STAUS_IPV4_COUNTER_PATH ]]; then
+    echo 0 > $TMUX_STAUS_IPV4_COUNTER_PATH
+fi
+
+# Read the counter value from a file
+tmux_status_ipv4_counter=`awk 'NR==1' $TMUX_STAUS_IPV4_COUNTER_PATH`
+
+# Query IPv4 only when the counter value is 0
+if (( $tmux_status_ipv4_counter==0 )); then
+    # Get global IPv4 using google service
+    tmux_status_ipv4_addr=`curl --ipv4 --silent https://domains.google.com/checkip`
+else
+    # Read cached IPv4 address
+    tmux_status_ipv4_addr=`awk 'NR==2' $TMUX_STAUS_IPV4_COUNTER_PATH`
+fi
+# Output IPv4 address
+echo $tmux_status_ipv4_addr
+
+# Increment the counter value
+if (( $tmux_status_ipv4_counter <= $TMUX_STAUS_IPV4_COUNTER_RESET )); then
+    echo $((tmux_status_ipv4_counter+1)) > $TMUX_STAUS_IPV4_COUNTER_PATH
+else
+    echo 0 > $TMUX_STAUS_IPV4_COUNTER_PATH
+fi
+
+# Save IPv4 address
+echo $tmux_status_ipv4_addr >> $TMUX_STAUS_IPV4_COUNTER_PATH
