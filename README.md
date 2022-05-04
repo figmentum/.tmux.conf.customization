@@ -1,12 +1,12 @@
 # .tmux.conf.customization
 
 ## これは何？
- * https://github.com/gpakosz/.tmux をベースにbyobu風のキーバインドを設定するなどカスタマイズしたもの
+ * [gpakosz/.tmux](https://github.com/gpakosz/.tmux)をベースにbyobu風のキーバインドを設定するなどカスタマイズしたもの
  * 随時アップデート予定
  * あくまで自分用
 
 ## 使い方
-https://github.com/gpakosz/.tmux をgit cloneしたうえで、このレポジトリの`.tmux.conf.local`でカスタマイズ部分を適用する。
+[gpakosz/.tmux](https://github.com/gpakosz/.tmux)をgit cloneしたうえで、このレポジトリの[.tmux.conf.local](https://github.com/figmentum/.tmux.conf.customization/blob/master/.tmux.conf.local)でカスタマイズ部分を適用する。
 
 
 ```
@@ -17,8 +17,8 @@ $ git clone https://github.com/figmentum/.tmux.conf.customization.git
 $ ln -s ~/.tmux.conf.customization/.tmux.conf.local ~/
 ```
 
-`.tmux.conf.local`を元の`.tmux.conf`と比較すれば変更点が確認出来る。
-`scripts`以下にtmuxのステータスバー表示用のスクリプト群が入っている。
+このレポジトリの[.tmux.conf.local](https://github.com/figmentum/.tmux.conf.customization/blob/master/.tmux.conf.local)と元の[.tmux.conf.local](https://github.com/gpakosz/.tmux/blob/master/.tmux.conf.local)とを比較すれば変更点が確認出来る。
+[scripts](https://github.com/figmentum/.tmux.conf.customization/tree/master/scripts)以下にtmuxのステータスバー表示用のスクリプト群が入っている。
 
 ## 制限事項
 * 基本的にzshとの組み合わせでの動作を想定
